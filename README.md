@@ -4,15 +4,15 @@ This documentation provides instructions for installing and using the Web Scrapi
 
 ## Table of Contents
 
-1. [Installation](#installation)
+1. [Installation](#1-installation)
    - [Prerequisites](#prerequisites)
    - [Setting up the app](#setting-up-the-app)
 
-2. [Usage](#usage)
+2. [Usage](#2-usage)
    - [Running the app](#running-the-app)
    - [Testing the app](#testing-the-app)
 
-3. [API Documentation](#api-documentation)
+3. [API Documentation](#3-api-documentation)
 
 ## 1. Installation
 
