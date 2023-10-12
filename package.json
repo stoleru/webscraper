@@ -1,0 +1,13 @@
+{
+    "name": "web-scraper",
+    "version": "1.0.0",
+    "scripts": {
+        "start:api": "cd api && npm start",
+        "test:api": "cd api && npm test",
+        "start:client": "cd client && npm start",
+        "start": "concurrently \"npm run start:api\" \"npm run start:client\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.1"
+    }
+}
