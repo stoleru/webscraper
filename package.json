@@ -4,6 +4,8 @@
     "scripts": {
         "start:api": "cd api && npm start",
         "test:api": "cd api && npm test",
+        "test:client": "cd client && npm test",
+        "test": "concurrently \"npm run test:api\" \"npm run test:client\"",
         "start:client": "cd client && npm start",
         "start": "concurrently \"npm run start:api\" \"npm run start:client\""
     },

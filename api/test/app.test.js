@@ -8,7 +8,8 @@ const expect = chai.expect;
 describe('API Tests', () => {
   it('should return a 200 response for /scrape', (done) => {
     chai.request(app)
-      .get('/scrape')
+      .post('/scrape')
+      .send({url: "https://www.google.com"})
       .end((err, res) => {
         expect(res).to.have.status(200);
         done();
@@ -17,7 +18,8 @@ describe('API Tests', () => {
 
   it('should return a JSON response for /scrape', (done) => {
     chai.request(app)
-      .get('/scrape')
+      .post('/scrape')
+      .send({url: "https://www.google.com"})
       .end((err, res) => {
         expect(res).to.have.header('content-type', 'application/json; charset=utf-8');
         done();

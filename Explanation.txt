@@ -1,0 +1,19 @@
+- The app that I've built is composed of one API done with NodeJS & Express and one UI done with React.
+- Infrastructure:
+    - Defined a root package.json file so I can run concurrently the API and the client or the test suits
+- The API:
+    - used puppeteer package so I can emulate chromium and scrap SPA page. (also it offers a large set of configuration compared with other packages)
+    - added cors so I can avoid the cross origin error
+    - the analyzeSentiment it's a function that calculates a score based on how many occurrences of positiveKeywords or negativeKeywords are in the short_description and returns the overall sentiment of the provided text
+    - for language detection I've used langdetect package it has the largest database of languages
+    - the scraping logic starts with getting all the anchor elements from the page. Since we can't rely on the classes or IDs of elements, the anchor looked as the best solution at the moment since the content of the URL provided had 10 links (2 per article). I've applied some filter so I can start the entry point from all the anchors that have an img tag inside because from that point in DOM I can easily get to the parent div which behaves as the article wrapper. From there was easy to extract all the information by using either the img tag or the other anchor element as reference inside the wrapper DOM.
+- The Client:
+    - React because I wanted to avoid any complexity at this point 
+    - Created two components for the UI and added error handling
+    - Added TailwindCSS but since my background is more front-endish I had no difficulty in integrating it. To exit my comfort zone I think that building the UI in Java will be a challenge for me as I'm not a big fan of the Java environment. 
+
+Notes:
+- It took me 2h - 2h:30m to build the entire thing
+- Although I haven't done it with TS - I think that at least the API should be TS ready
+- Scraping unkown DOM structure can be achieved if the user picks the type of the website trying to scrap. (blog like, e-commerce, list) and with an interface that allows the user to click on the DOM element and in the back based on the CSS/DOM similarity find any other elements.
+- 10yrs ago I had a small team and we did scraping for 12 fashion websites. One of the things that bugged us was the IP blocking which at that time we bypassed by requesting each page content through a random picked server (with diff IP) and with random access times so no pattern can be detected.
