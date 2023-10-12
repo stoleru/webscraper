@@ -3,7 +3,7 @@ import React from 'react';
 
 const ResultBox = ({ data, error }) => {
   if (error) {
-    return <div className="text-red-500">{error.message}</div>;
+    return <div className="text-red-500 mt-4 ml-2">{error.message}</div>;
   }
 
   if (data) {

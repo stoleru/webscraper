@@ -20,13 +20,15 @@ const App = () => {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        const err = await response.json();
+        throw new Error(`HTTP error! ${err.error}`);
       }
 
       const jsonData = await response.json();
       setData(jsonData);
       setError(null);
     } catch (err) {
+      console.log(err)
       setError(err);
       setData(null);
     } finally {

@@ -13,6 +13,16 @@ app.use(express.json());
 const positiveKeywords = ['good', 'happy', 'positive', 'excellent', 'joyful'];
 const negativeKeywords = ['bad', 'sad', 'negative', 'poor'];
 
+// Test if a string is a valid URL
+const isValidUrl = (url) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
 // Function to perform sentiment analysis
 const analyzeSentiment = (text) => {
   const words = text.toLowerCase().split(/\s+/);
@@ -45,6 +55,10 @@ app.post('/scrape', async (req, res) => {
   const browser = await puppeteer.launch({headless: "true"});
   const page = await browser.newPage();
   const { url } = req.body;
+  
+  if (!isValidUrl(url)) {
+    return res.status(400).json({ error: 'Invalid URL format' });
+  }
   
   try {
     await page.goto(url, { waitUntil: 'networkidle2' });

@@ -13,7 +13,7 @@ const ScraperForm = ({ onSubmit, loading }) => {
     <div>
       <form onSubmit={handleSubmit} className="p-4 border border-gray-300 rounded-lg shadow-md">
         <input
-          type="text"
+          type="url"
           placeholder="Enter the URL to be scraped"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
